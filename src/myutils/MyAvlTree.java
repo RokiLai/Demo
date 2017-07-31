@@ -23,4 +23,25 @@ public class MyAvlTree<AnyType extends Comparable<? super AnyType>> {
     private int getHight(MyAvlNode<AnyType> node) {
         return node == null ? -1 : node.height;
     }
+
+    private MyAvlNode<AnyType> insert(AnyType x, MyAvlNode<AnyType> node) {
+        if (node == null) {
+            return new MyAvlNode<>(x);
+        }
+        int compareResule = x.compareTo(node.element);
+
+        if (compareResule < 0) {
+            node.leftNode = insert(x,node.leftNode);
+
+        }
+
+        return node;
+    }
+
+    private MyAvlNode<AnyType> rotateWithLeftChild(MyAvlNode<AnyType> node){
+
+        return node;
+
+    }
+
 }
