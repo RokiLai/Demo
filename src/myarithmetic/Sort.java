@@ -42,20 +42,43 @@ public class Sort {
                 if (temp1 > list[j])
                     break;
 
-                list[j+1] = list[j];
+                list[j + 1] = list[j];
             }
 
-            list[j+1] = temp1;
+            list[j + 1] = temp1;
 
         }
         return list;
     }
 
-    public static int[]
+    public static int[] shell(int[] list) {
+
+        int j;
+
+        for (int k = list.length / 2; k > 0; k /= 2) {
+
+            for (int i = k; i < list.length; i++) {
+
+                int temp1 = list[i];
+
+                for (j = i - k; j >= 0; j -= k) {
+                    if (temp1 > list[j])
+                        break;
+
+                    list[j + k] = list[j];
+                }
+
+                list[j + k] = temp1;
+
+            }
+
+        }
+        return list;
+    }
 
     public static void main(String[] args) {
         int[] a = {34, 8, 64, 51, 32, 21};
-        System.out.println(Arrays.toString(insertion(a)));
+        System.out.println(Arrays.toString(shell(a)));
 //        System.out.println(Arrays.toString(bubble(a)));
 
     }
